@@ -1,6 +1,6 @@
 #root {
-  max-width: 1280px;
   
+
   text-align: center;
 }
 
@@ -33,5 +33,71 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 0.5em;
+  height: auto;
+
+}
+.user-form-container {
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  gap: 10px;
+  border-radius: 5px;
+  height: 350px;
+ width: 100vw;
+  
+}
+.userCardContainer{
+  display: flex;
+  flex-direction: row;
+  
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  text-align: start;
+  padding: 0 0.5em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  gap: 20px;
+  flex-wrap: wrap;
+
+}
+
+
+
+.usercard {
+  list-style: none;
+  gap: 10px;
+  border-radius: 5px;
+  height: 350px;
+  min-width: 300px;
+  max-width: auto;
+  background-color: rgb(250, 250, 250);
+  box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 10px 10px 5px -6px rgba(0, 0, 0, 0.45);
+}
+
+
+.buttonsContainer {
+padding-top: 10px;
+display: flex;
+justify-content: space-evenly;
+
+}
+
+button {
+  padding: auto;
 }
 

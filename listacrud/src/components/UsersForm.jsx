@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const UsersForm = () => {
   const [formData, setFormData] = useState({
@@ -14,19 +15,24 @@ const UsersForm = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí puedes realizar las acciones necesarias con los datos del formulario
-    console.log(formData);
-    // ... rest of the logic
+
+    try {
+      const response = await axios.post('https://users-crud.academlo.tech/users/', formData);
+      console.log(response.data);
+      // ... realizar acciones adicionales con la respuesta de la API si es necesario
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
     <div className="user-form-container">
       <h2>Users Form</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div>
-          <label htmlFor="first_name">First Name:</label>
+          <label htmlFor="first_name">First Name:</label> <br />
           <input
             type="text"
             id="first_name"
@@ -36,7 +42,7 @@ const UsersForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="last_name">Last Name:</label>
+          <label htmlFor="last_name">Last Name:</label> <br />
           <input
             type="text"
             id="last_name"
@@ -46,7 +52,7 @@ const UsersForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email:</label> <br />
           <input
             type="email"
             id="email"
@@ -55,18 +61,9 @@ const UsersForm = () => {
             onChange={handleChange}
           />
         </div>
+        
         <div>
-          <label htmlFor="birthday">Birthday:</label>
-          <input
-            type="date"
-            id="birthday"
-            name="birthday"
-            value={formData.birthday}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password:</label> <br />
           <input
             type="password"
             id="password"
@@ -75,7 +72,17 @@ const UsersForm = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Submit</button>
+        <div>
+          <label htmlFor="birthday">Birthday:</label> <br />
+          <input
+            type="date"
+            id="birthday"
+            name="birthday"
+            value={formData.birthday}
+            onChange={handleChange}
+          />
+        </div>
+        <button type="submit" onClick={handleSubmit}>Submit</button>
       </form>
     </div>
   );

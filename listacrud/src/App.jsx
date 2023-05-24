@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import UsersList from "/components/UsersList";
+import UsersList from "components/UsersList";
 import "./App.css";
-import UsersForm from "/components/UsersForm";
+import UsersForm from "components/UsersForm";
 
 const App = () => {
   

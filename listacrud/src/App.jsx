@@ -10,6 +10,10 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
+
+
+
   useEffect(() => {
 
     const fetchData = async () => {
@@ -41,8 +45,8 @@ const App = () => {
 
     <div className="appContainer">
 
-      <UsersForm data={data}/>
-      <UsersList data={data}/>
+      <UsersForm data={data} />
+      <UsersList data={data}  />
     </div>
   );
 };

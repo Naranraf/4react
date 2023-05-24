@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import axios from 'axios';
 
 const UsersForm = () => {
+  
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -15,17 +16,24 @@ const UsersForm = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
 
+  
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
     try {
       const response = await axios.post('https://users-crud.academlo.tech/users/', formData);
-      console.log(response.data);
-      // ... realizar acciones adicionales con la respuesta de la API si es necesario
+      
     } catch (error) {
       console.error(error);
     }
+
   };
+
+  useEffect(()=>{
+
+    handleSubmit()
+  })
+
 
   return (
     <div className="user-form-container">

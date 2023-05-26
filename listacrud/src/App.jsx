@@ -45,8 +45,8 @@ const App = () => {
 
     <div className="appContainer">
 
-      <UsersForm data={data} />
-      <UsersList data={data}  />
+      <UsersForm data={data}/>
+      <UsersList data={data}/>
     </div>
   );
 };
